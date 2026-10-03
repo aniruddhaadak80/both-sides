@@ -1,0 +1,1482 @@
+{
+  "schema": "both-sides/fallback-corpus@1",
+  "capturedAt": "2026-10-03T09:23:53.421Z",
+  "generator": "scripts/capture-corpus.mjs",
+  "attribution": [
+    {
+      "name": "Wikidata",
+      "url": "https://www.wikidata.org",
+      "license": "CC0 1.0"
+    },
+    {
+      "name": "Wikipedia REST API",
+      "url": "https://en.wikipedia.org",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "name": "OpenStreetMap Nominatim",
+      "url": "https://nominatim.openstreetmap.org",
+      "license": "ODbL"
+    }
+  ],
+  "note": "Sealed snapshot used only when the Sanity Content Lake has no published dispute documents. Every claim retains its upstream rank and reference URLs.",
+  "entities": [
+    {
+      "entityId": "Q35765",
+      "label": "Osaka",
+      "description": "designated city in Osaka Prefecture, Japan",
+      "wikipedia": {
+        "title": "Osaka",
+        "extract": "Osaka  is a designated city in the Kansai region of Honshu in Japan. It is the capital of and most populous city in Osaka Prefecture, and the second biggest prefectural city, third-most populous city proper in Japan, following the special wards of Tokyo and Yokohama. With an estimated population of 2.8 million as of October 1, 2025 and a population density of about 12,505 people per square kilometer, it is the largest component of the Keihanshin metropolitan area, the second-largest metropolitan area in Japan and the 10th-largest urban area in the world with more than 19 million inhabitants.",
+        "timestamp": "2026-10-02T15:13:20Z",
+        "url": "https://en.wikipedia.org/wiki/Osaka"
+      },
+      "openstreetmap": {
+        "osmType": "relation",
+        "osmId": 358674,
+        "displayName": "大阪市, 大阪府, 日本",
+        "lat": "34.6937569",
+        "lon": "135.5014539",
+        "elevation": null
+      },
+      "disputes": [
+        {
+          "propertyId": "P1082",
+          "propertyKey": "population",
+          "propertyLabel": "Population",
+          "claims": [
+            {
+              "claimId": "Q35765-P1082-1",
+              "value": "2751862",
+              "numeric": 2751862,
+              "rank": "preferred",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "http://www.pref.osaka.jp/toukei/jinkou/index.html"
+              ],
+              "retrieved": "2021-04-02",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q35765-P1082-2",
+              "value": "2685481",
+              "numeric": 2685481,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q35765-P1082-3",
+              "value": "2691185",
+              "numeric": 2691185,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www.e-stat.go.jp/en/regional-statistics/ssdsview/municipality"
+              ],
+              "retrieved": "2019-03-17",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q35765-P1082-4",
+              "value": "2665314",
+              "numeric": 2665314,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www.e-stat.go.jp/en/regional-statistics/ssdsview/municipality"
+              ],
+              "retrieved": "2019-03-17",
+              "precision": "quantity"
+            }
+          ]
+        },
+        {
+          "propertyId": "P571",
+          "propertyKey": "inception",
+          "propertyLabel": "Inception",
+          "claims": [
+            {
+              "claimId": "Q35765-P571-1",
+              "value": "1889-04-01",
+              "numeric": 1889,
+              "rank": "preferred",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "year precision 11"
+            },
+            {
+              "claimId": "Q35765-P571-2",
+              "value": "year 1500",
+              "numeric": 1500,
+              "rank": "normal",
+              "referenceCount": 2,
+              "referenceUrls": [
+                "https://kotobank.jp/word/%E5%A4%A7%E5%9D%82-822043"
+              ],
+              "retrieved": null,
+              "precision": "year precision 7"
+            },
+            {
+              "claimId": "Q35765-P571-3",
+              "value": "year 0500",
+              "numeric": 500,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "year precision 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "Q34600",
+      "label": "Kyoto",
+      "description": "city in the Kyōto Prefecture, Japan",
+      "wikipedia": {
+        "title": "Kyoto",
+        "extract": "Kyoto, officially Kyoto City , is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan. More than half (56.8%) of Kyoto Prefecture's population resides in the city. The city is the cultural anchor of the substantially larger Greater Kyoto, a metropolitan statistical area home to approximately 3.8 million people. It is also part of the even larger Keihanshin metropolitan area, along with Osaka and Kobe.",
+        "timestamp": "2026-10-03T03:56:49Z",
+        "url": "https://en.wikipedia.org/wiki/Kyoto"
+      },
+      "openstreetmap": {
+        "osmType": "relation",
+        "osmId": 357794,
+        "displayName": "京都市, 京都府, 日本",
+        "lat": "35.0115754",
+        "lon": "135.7681441",
+        "elevation": null
+      },
+      "disputes": [
+        {
+          "propertyId": "P1082",
+          "propertyKey": "population",
+          "propertyLabel": "Population",
+          "claims": [
+            {
+              "claimId": "Q34600-P1082-1",
+              "value": "1448964",
+              "numeric": 1448964,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www2.city.kyoto.lg.jp/sogo/toukei/Population/Suikei/"
+              ],
+              "retrieved": "2022-10-08",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-2",
+              "value": "1475183",
+              "numeric": 1475183,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www.e-stat.go.jp/en/regional-statistics/ssdsview/municipality"
+              ],
+              "retrieved": "2019-03-17",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-3",
+              "value": "1474015",
+              "numeric": 1474015,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www.e-stat.go.jp/en/regional-statistics/ssdsview/municipality"
+              ],
+              "retrieved": "2019-03-17",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-4",
+              "value": "1474811",
+              "numeric": 1474811,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-5",
+              "value": "1467785",
+              "numeric": 1467785,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-6",
+              "value": "1463822",
+              "numeric": 1463822,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-7",
+              "value": "1461103",
+              "numeric": 1461103,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-8",
+              "value": "1479218",
+              "numeric": 1479218,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-9",
+              "value": "1473065",
+              "numeric": 1473065,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-10",
+              "value": "1461059",
+              "numeric": 1461059,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-11",
+              "value": "1419165",
+              "numeric": 1419165,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-12",
+              "value": "1365007",
+              "numeric": 1365007,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-13",
+              "value": "1284818",
+              "numeric": 1284818,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-14",
+              "value": "1204084",
+              "numeric": 1204084,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-15",
+              "value": "1101854",
+              "numeric": 1101854,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-16",
+              "value": "999660",
+              "numeric": 999660,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-17",
+              "value": "1089726",
+              "numeric": 1089726,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-18",
+              "value": "1080593",
+              "numeric": 1080593,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-19",
+              "value": "765142",
+              "numeric": 765142,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-20",
+              "value": "679963",
+              "numeric": 679963,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-21",
+              "value": "591323",
+              "numeric": 591323,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-22",
+              "value": "279165",
+              "numeric": 279165,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www2.city.kyoto.lg.jp/sogo/toukei/Population/index.html"
+              ],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-23",
+              "value": "237674",
+              "numeric": 237674,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-24",
+              "value": "290000",
+              "numeric": 290000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-25",
+              "value": "370000",
+              "numeric": 370000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-26",
+              "value": "430000",
+              "numeric": 430000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-27",
+              "value": "250000",
+              "numeric": 250000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-28",
+              "value": "100000",
+              "numeric": 100000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-29",
+              "value": "180000",
+              "numeric": 180000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-30",
+              "value": "120000",
+              "numeric": 120000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-31",
+              "value": "120000",
+              "numeric": 120000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-32",
+              "value": "130000",
+              "numeric": 130000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-33",
+              "value": "100000",
+              "numeric": 100000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-34",
+              "value": "160000",
+              "numeric": 160000,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": "2016-11-05",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q34600-P1082-35",
+              "value": "1463723",
+              "numeric": 1463723,
+              "rank": "preferred",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www.pref.kyoto.jp/tokei/cycle/kokucho/kokuchotop.html"
+              ],
+              "retrieved": "2022-09-18",
+              "precision": "quantity"
+            }
+          ]
+        },
+        {
+          "propertyId": "P571",
+          "propertyKey": "inception",
+          "propertyLabel": "Inception",
+          "claims": [
+            {
+              "claimId": "Q34600-P571-1",
+              "value": "1889-04-01",
+              "numeric": 1889,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "year precision 11"
+            },
+            {
+              "claimId": "Q34600-P571-2",
+              "value": "0794-11-18",
+              "numeric": 794,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "year precision 11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "Q3870",
+      "label": "Nairobi",
+      "description": "capital city of Kenya",
+      "wikipedia": {
+        "title": "Nairobi",
+        "extract": "Nairobi, is the capital and largest city of Kenya, located in the south-central part of the country. As of 2026, it has a population of 5.6 million and a metropolitan population of 15.95 million, making it the 8th most populous city in Africa and the 4th most populous metropolitan area. The city goes beyond its borders and has expanded into neighbouring counties, making it the 4th largest metropolitan area in Africa.",
+        "timestamp": "2026-09-30T05:25:20Z",
+        "url": "https://en.wikipedia.org/wiki/Nairobi"
+      },
+      "openstreetmap": {
+        "osmType": "relation",
+        "osmId": 9185096,
+        "displayName": "Nairobi, Kenya",
+        "lat": "-1.2890006",
+        "lon": "36.8172812",
+        "elevation": null
+      },
+      "disputes": [
+        {
+          "propertyId": "P1082",
+          "propertyKey": "population",
+          "propertyLabel": "Population",
+          "claims": [
+            {
+              "claimId": "Q3870-P1082-1",
+              "value": "3138369",
+              "numeric": 3138369,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q3870-P1082-2",
+              "value": "3240155",
+              "numeric": 3240155,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://web.archive.org/web/20090314131819/http://www.cbs.go.ke/sectoral/population/projections.html"
+              ],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q3870-P1082-3",
+              "value": "5545000",
+              "numeric": 5545000,
+              "rank": "preferred",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "http://www.demographia.com/db-worldua.pdf"
+              ],
+              "retrieved": null,
+              "precision": "quantity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "Q597",
+      "label": "Lisbon",
+      "description": "municipality and capital city of Portugal",
+      "wikipedia": {
+        "title": "Lisbon",
+        "extract": "Lisbon is the capital and most populous city of Portugal, with an estimated population of 658,236 as of 2025, within its administrative limits and 3,353,000 within the metropolis, as of 2025. The city lies on the Atlantic Ocean in the western part of the Iberian Peninsula, fronting the northern shore of the River Tagus. The western portion of its metro area, the Portuguese Riviera, hosts the westernmost point of Continental Europe, culminating at Cabo da Roca.",
+        "timestamp": "2026-09-27T00:46:26Z",
+        "url": "https://en.wikipedia.org/wiki/Lisbon"
+      },
+      "openstreetmap": {
+        "osmType": "relation",
+        "osmId": 5400890,
+        "displayName": "Lisboa, Portugal",
+        "lat": "38.7077507",
+        "lon": "-9.1365919",
+        "elevation": null
+      },
+      "disputes": [
+        {
+          "propertyId": "P1082",
+          "propertyKey": "population",
+          "propertyLabel": "Population",
+          "claims": [
+            {
+              "claimId": "Q597-P1082-1",
+              "value": "547733",
+              "numeric": 547733,
+              "rank": "deprecated",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "http://mapas.ine.pt/download/index2011.phtml"
+              ],
+              "retrieved": "2018-09-19",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q597-P1082-2",
+              "value": "545796",
+              "numeric": 545796,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "http://mapas.ine.pt/download/index2021.phtml"
+              ],
+              "retrieved": "2022-09-19",
+              "precision": "quantity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "Q1764",
+      "label": "Reykjavík",
+      "description": "capital and largest city in Iceland",
+      "wikipedia": {
+        "title": "Reykjavík",
+        "extract": "Reykjavík is the capital and largest city of Iceland. It is located on the southern shore of the Faxaflói bay in southwest Iceland and has a latitude of 64°08′ N, making it the world's northernmost capital of a sovereign state. Reykjavík has a population of around 140,000 as of 2026, and the surrounding Capital Region has a population of around 252,000, constituting approximately 64% of Iceland's population.",
+        "timestamp": "2026-09-19T01:43:45Z",
+        "url": "https://en.wikipedia.org/wiki/Reykjav%C3%ADk"
+      },
+      "openstreetmap": {
+        "osmType": "relation",
+        "osmId": 2580605,
+        "displayName": "Reykjavíkurborg, Höfuðborgarsvæðið, Ísland",
+        "lat": "64.1459810",
+        "lon": "-21.9422367",
+        "elevation": null
+      },
+      "disputes": [
+        {
+          "propertyId": "P1082",
+          "propertyKey": "population",
+          "propertyLabel": "Population",
+          "claims": [
+            {
+              "claimId": "Q1764-P1082-1",
+              "value": "6667",
+              "numeric": 6667,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-2",
+              "value": "11600",
+              "numeric": 11600,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-3",
+              "value": "17679",
+              "numeric": 17679,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-4",
+              "value": "28304",
+              "numeric": 28304,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-5",
+              "value": "38196",
+              "numeric": 38196,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-6",
+              "value": "56251",
+              "numeric": 56251,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-7",
+              "value": "72407",
+              "numeric": 72407,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-8",
+              "value": "81693",
+              "numeric": 81693,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-9",
+              "value": "83766",
+              "numeric": 83766,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-10",
+              "value": "97569",
+              "numeric": 97569,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02120.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-11",
+              "value": "99623",
+              "numeric": 99623,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02009.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-12",
+              "value": "100850",
+              "numeric": 100850,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02009.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-13",
+              "value": "101824",
+              "numeric": 101824,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02009.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-14",
+              "value": "103020",
+              "numeric": 103020,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02009.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-15",
+              "value": "104258",
+              "numeric": 104258,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02009.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-16",
+              "value": "105458",
+              "numeric": 105458,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02009.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-17",
+              "value": "106567",
+              "numeric": 106567,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxen/pxweb/en/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelogeldra/MAN02009.px/"
+              ],
+              "retrieved": "2019-06-23",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-18",
+              "value": "107341",
+              "numeric": 107341,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-19",
+              "value": "108484",
+              "numeric": 108484,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-20",
+              "value": "109887",
+              "numeric": 109887,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-21",
+              "value": "111544",
+              "numeric": 111544,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-22",
+              "value": "112411",
+              "numeric": 112411,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-23",
+              "value": "112554",
+              "numeric": 112554,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-24",
+              "value": "113288",
+              "numeric": 113288,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-25",
+              "value": "113848",
+              "numeric": 113848,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-26",
+              "value": "114968",
+              "numeric": 114968,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-27",
+              "value": "116642",
+              "numeric": 116642,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-28",
+              "value": "118827",
+              "numeric": 118827,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-29",
+              "value": "119547",
+              "numeric": 119547,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-30",
+              "value": "118326",
+              "numeric": 118326,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-31",
+              "value": "115394",
+              "numeric": 115394,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-32",
+              "value": "115555",
+              "numeric": 115555,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-33",
+              "value": "116622",
+              "numeric": 116622,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-34",
+              "value": "118192",
+              "numeric": 118192,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-35",
+              "value": "118789",
+              "numeric": 118789,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-36",
+              "value": "119266",
+              "numeric": 119266,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-37",
+              "value": "120513",
+              "numeric": 120513,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-38",
+              "value": "123141",
+              "numeric": 123141,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-39",
+              "value": "125360",
+              "numeric": 125360,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-40",
+              "value": "126549",
+              "numeric": 126549,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-41",
+              "value": "128610",
+              "numeric": 128610,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-42",
+              "value": "130638",
+              "numeric": 130638,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-43",
+              "value": "134298",
+              "numeric": 134298,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-44",
+              "value": "136894",
+              "numeric": 136894,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1764-P1082-45",
+              "value": "138772",
+              "numeric": 138772,
+              "rank": "preferred",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02005.px/table/tableViewLayout2/"
+              ],
+              "retrieved": "2025-11-10",
+              "precision": "quantity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "Q1335",
+      "label": "Montevideo",
+      "description": "capital and largest city of Uruguay",
+      "wikipedia": {
+        "title": "Montevideo",
+        "extract": "Montevideo is the capital and largest city of Uruguay. As of the 2023 census, the city proper has a population of 1,287,452, making up about 36.8% of the country's total population, in an area of 201 square kilometers (78 sq mi). Montevideo is situated on the southern coast of the country, on the northeastern bank of the Río de la Plata.",
+        "timestamp": "2026-10-01T03:14:14Z",
+        "url": "https://en.wikipedia.org/wiki/Montevideo"
+      },
+      "openstreetmap": {
+        "osmType": "relation",
+        "osmId": 2929054,
+        "displayName": "Montevideo, Uruguay",
+        "lat": "-34.9058916",
+        "lon": "-56.1913095",
+        "elevation": null
+      },
+      "disputes": [
+        {
+          "propertyId": "P1082",
+          "propertyKey": "population",
+          "propertyLabel": "Population",
+          "claims": [
+            {
+              "claimId": "Q1335-P1082-1",
+              "value": "33994",
+              "numeric": 33994,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-2",
+              "value": "57916",
+              "numeric": 57916,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-3",
+              "value": "309231",
+              "numeric": 309231,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-4",
+              "value": "1202757",
+              "numeric": 1202757,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-5",
+              "value": "1237227",
+              "numeric": 1237227,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-6",
+              "value": "1311976",
+              "numeric": 1311976,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-7",
+              "value": "1344839",
+              "numeric": 1344839,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-8",
+              "value": "1325968",
+              "numeric": 1325968,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-9",
+              "value": "1319108",
+              "numeric": 1319108,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q1335-P1082-10",
+              "value": "1302954",
+              "numeric": 1302954,
+              "rank": "preferred",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www5.ine.gub.uy/documents/CENSO%202023/Poblaci%C3%B3n%20estimada,%20crecimiento%20intercensal%20y%20estructura%20por%20sexo%20y%20edad.pdf"
+              ],
+              "retrieved": null,
+              "precision": "quantity"
+            }
+          ]
+        },
+        {
+          "propertyId": "P571",
+          "propertyKey": "inception",
+          "propertyLabel": "Inception",
+          "claims": [
+            {
+              "claimId": "Q1335-P571-1",
+              "value": "1726-12-24",
+              "numeric": 1726,
+              "rank": "normal",
+              "referenceCount": 0,
+              "referenceUrls": [],
+              "retrieved": null,
+              "precision": "year precision 11"
+            },
+            {
+              "claimId": "Q1335-P571-2",
+              "value": "year 1723",
+              "numeric": 1723,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://uruguayeduca.anep.edu.uy/efemerides/fundacion-de-montevideo"
+              ],
+              "retrieved": null,
+              "precision": "year precision 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "Q23661",
+      "label": "Wellington",
+      "description": "capital city of New Zealand; urban area of the cities of Wellington, Lower Hutt, Upper Hutt, and Porirua",
+      "wikipedia": {
+        "title": "Wellington",
+        "extract": "Wellington is the capital city of New Zealand. It is located at the southwestern tip of the North Island, between Cook Strait and the Remutaka Range. Wellington is the third-largest city in New Zealand, and is the administrative centre of the Wellington Region. It is the world's southernmost capital of a sovereign state. Wellington features a temperate maritime climate, and is the world's windiest city by average wind speed.",
+        "timestamp": "2026-09-24T17:37:03Z",
+        "url": "https://en.wikipedia.org/wiki/Wellington"
+      },
+      "openstreetmap": {
+        "osmType": "node",
+        "osmId": 204648,
+        "displayName": "Wellington, Wellington City, Wellington, 6011, New Zealand / Aotearoa",
+        "lat": "-41.2887953",
+        "lon": "174.7772114",
+        "elevation": null
+      },
+      "disputes": [
+        {
+          "propertyId": "P1082",
+          "propertyKey": "population",
+          "propertyLabel": "Population",
+          "claims": [
+            {
+              "claimId": "Q23661-P1082-1",
+              "value": "216200",
+              "numeric": 216200,
+              "rank": "preferred",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://nzdotstat.stats.govt.nz/wbos/Index.aspx?DataSetCode=TABLECODE7510#"
+              ],
+              "retrieved": "2023-12-29",
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q23661-P1082-2",
+              "value": "215100",
+              "numeric": 215100,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "http://nzdotstat.stats.govt.nz/wbos/Index.aspx?DataSetCode=TABLECODE7981"
+              ],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q23661-P1082-3",
+              "value": "58563",
+              "numeric": 58563,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www3.stats.govt.nz/historic_publications/1906-census/1906-results-census/1906-results-census.html#d50e42881"
+              ],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q23661-P1082-4",
+              "value": "64372",
+              "numeric": 64372,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www3.stats.govt.nz/historic_publications/1911-census/1911-results-census.html?_ga=2.231361687.964541714.1716635955-392304954.1716635954#d50e44892"
+              ],
+              "retrieved": null,
+              "precision": "quantity"
+            },
+            {
+              "claimId": "Q23661-P1082-5",
+              "value": "73305",
+              "numeric": 73305,
+              "rank": "normal",
+              "referenceCount": 1,
+              "referenceUrls": [
+                "https://www3.stats.govt.nz/historic_publications/1916-census/Report%20on%20Results%20of%20Census%201916/1916-report-results-census%20.html?_ga=2.260966277.964541714.1716635955-392304954.1716635954#idsect2_1_4314"
+              ],
+              "retrieved": null,
+              "precision": "quantity"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

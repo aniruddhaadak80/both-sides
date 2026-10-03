@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "both-sides": {
+      "type": "http",
+      "url": "https://both-sides.vercel.app/api/mcp",
+      "description": "Adjudicate claims that contradict each other. Lists entities with disputed properties, reads every competing claim with its references, runs a deterministic precedence engine, records a ruling into a hash-chained ledger, and replays the chain.",
+      "tools": [
+        { "name": "list_disputes", "readOnly": true },
+        { "name": "get_dispute", "readOnly": true },
+        { "name": "list_rulings", "readOnly": true },
+        { "name": "engine_reference", "readOnly": true },
+        { "name": "adjudicate", "readOnly": true },
+        { "name": "get_audit_trail", "readOnly": true },
+        { "name": "record_ruling", "readOnly": false },
+        { "name": "revise_ruling", "readOnly": false },
+        { "name": "retire_ruling", "readOnly": false }
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "both-sides-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "schema:deploy": "sanity schemas deploy",
+    "typegen": "sanity schemas extract --force && sanity typegen generate"
+  },
+  "dependencies": {
+    "@sanity/vision": "^4.22.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sanity": "^4.22.0",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}

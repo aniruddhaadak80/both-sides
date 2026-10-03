@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf7f2;
+  --color-paper-2: #f3ede2;
+  --color-ink: #14110f;
+  --color-ink-90: #2b2622;
+  --color-ink-80: #453e37;
+  --color-ink-70: #5e554c;
+  --color-ink-60: #7c7267;
+  --color-rule: #e2d9c9;
+  --color-felt: #1d4b3e;
+  --color-felt-80: #2b6252;
+  --color-vermilion: #c33a2b;
+  --color-lapis: #24508f;
+  --color-ochre: #a9790f;
+
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A faint ruled stock, so the page reads as paper rather than as a dark panel. */
+.paper-grain {
+  background-image:
+    linear-gradient(to bottom, rgba(20, 17, 15, 0.045) 1px, transparent 1px),
+    linear-gradient(to right, rgba(20, 17, 15, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.podium-a {
+  border-top: 4px solid var(--color-vermilion);
+}
+
+.podium-b {
+  border-top: 4px solid var(--color-lapis);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .deal-in {
+    animation: deal-in 320ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+}
+
+@keyframes deal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) rotate(-1.2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .deal-in {
+    animation: none;
+  }
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-lapis);
+  outline-offset: 2px;
+}
