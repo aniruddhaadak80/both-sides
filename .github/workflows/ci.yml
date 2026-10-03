@@ -71,6 +71,7 @@ jobs:
       - name: Start the app against real postgres
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/bothsides
+          DATABASE_DRIVER: tcp
           NEXT_PUBLIC_SANITY_PROJECT_ID: '4npxmu4m'
           NEXT_PUBLIC_SANITY_DATASET: production
         run: |

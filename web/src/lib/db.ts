@@ -1,5 +1,5 @@
 export interface SqlAdapter {
-  kind: 'neon-postgres' | 'pglite-embedded';
+  kind: 'neon-postgres' | 'postgres-tcp' | 'pglite-embedded';
   query<T>(sql: string, params?: unknown[]): Promise<T[]>;
   execute(sql: string, params?: unknown[]): Promise<void>;
 }
@@ -135,6 +135,21 @@ async function neonAdapter(url: string): Promise<SqlAdapter> {
   };
 }
 
+async function tcpAdapter(url: string): Promise<SqlAdapter> {
+  const { Pool } = await import('pg');
+  const pool = new Pool({ connectionString: url, max: 4, connectionTimeoutMillis: 15000 });
+  return {
+    kind: 'postgres-tcp',
+    async query<T>(text: string, params: unknown[] = []) {
+      const res = await pool.query(text, params as never[]);
+      return res.rows as T[];
+    },
+    async execute(text: string, params: unknown[] = []) {
+      await pool.query(text, params as never[]);
+    },
+  };
+}
+
 async function pgliteAdapter(): Promise<SqlAdapter> {
   const { PGlite } = await import('@electric-sql/pglite');
   // In-memory by default. A file-backed database is opt-in via PGLITE_DIR,
@@ -170,8 +185,19 @@ export function resolveAdapter(): Promise<SqlAdapter> {
     cache.adapterPromise = (async () => {
       const url = process.env.DATABASE_URL?.trim();
       const isPostgres = !!url && /^postgres(ql)?:\/\//.test(url);
-      if (isPostgres) return await neonAdapter(url!);
-      if (process.env.NODE_ENV === 'production') {
+
+      if (isPostgres) {
+        // Neon's serverless driver speaks the HTTP API and cannot reach a plain
+        // Postgres server, so the transport is chosen explicitly rather than
+        // inferred from the scheme alone.
+        const driver = process.env.DATABASE_DRIVER?.trim().toLowerCase();
+        const host = /@([^/:]+)/.exec(url)?.[1] ?? '';
+        const useHttp =
+          driver === 'http' || (driver !== 'tcp' && (host.endsWith('.neon.tech') || driver === 'neon'));
+        return useHttp ? await neonAdapter(url!) : await tcpAdapter(url!);
+      }
+
+      if (process.env.NODE_ENV === 'production' && process.env.ALLOW_EMBEDDED_DB !== '1') {
         throw new Error(
           'DATABASE_URL is required in production; the embedded adapter is development-only.',
         );

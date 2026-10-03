@@ -263,7 +263,7 @@ const run = async () => {
 
   section('8. Integrity');
   const replay = await req(`/api/rulings/${rulingId}/replay`);
-  check('replay endpoint returns 200', replay.status === 200);
+  check('replay endpoint returns 200', replay.status === 200, `got ${replay.status} ${replay.text.slice(0, 120)}`);
   check('replay finds no broken link', replay.json?.replay?.ok === true, replay.json?.replay?.detail ?? '');
   check('replay reports the head seal', /^[0-9a-f]{96}$/.test(replay.json?.replay?.headSeal ?? ''));
   check('replay returns the audit events', (replay.json?.events?.length ?? 0) >= 2);
