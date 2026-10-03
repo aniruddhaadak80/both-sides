@@ -187,10 +187,18 @@ export async function db(): Promise<SqlAdapter> {
   if (!cache.schemaReady) {
     cache.schemaReady = (async () => {
       // Neon's extended protocol rejects multi-statement strings, so DDL is applied
-      // one statement at a time. Every statement is idempotent.
-      for (const raw of SCHEMA_SQL.split(';')) {
-        const stmt = raw.trim();
-        if (stmt) await a.execute(stmt);
+      // one statement at a time. Every statement is idempotent. A cold start can
+      // race another invocation on the same statements, so one retry is allowed.
+      for (let attempt = 1; attempt <= 2; attempt += 1) {
+        try {
+          for (const raw of SCHEMA_SQL.split(';')) {
+            const stmt = raw.trim();
+            if (stmt) await a.execute(stmt);
+          }
+          return;
+        } catch (err) {
+          if (attempt === 2) throw err;
+        }
       }
     })().catch((err) => {
       cache.schemaReady = null;

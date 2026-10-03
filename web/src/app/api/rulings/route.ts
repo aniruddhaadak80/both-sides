@@ -85,21 +85,39 @@ export async function POST(request: Request) {
     corroboratingText: corroborationText(entity),
   });
 
-  const { ruling, replayed } = await createRuling(
-    scopeId,
-    {
-      entity: { entityId: entity.entityId, label: entity.label },
+  let ruling;
+  let replayed = false;
+  try {
+    const stored = await createRuling(
+      scopeId,
+      {
+        entity: { entityId: entity.entityId, label: entity.label },
+        propertyId,
+        propertyLabel: dispute.propertyLabel,
+        disputeKey: `${entity.entityId}:${propertyId}`,
+        chosenClaimId,
+        chosenValue: chosen.value,
+        rationale,
+        engine: result,
+        supersedesId: supersedesId ?? null,
+      },
+      idempotencyKey ?? null,
+    );
+    ruling = stored.ruling;
+    replayed = stored.replayed;
+  } catch (err) {
+    console.error('ruling create failed', {
+      scopeId,
+      entityId,
       propertyId,
-      propertyLabel: dispute.propertyLabel,
-      disputeKey: `${entity.entityId}:${propertyId}`,
-      chosenClaimId,
-      chosenValue: chosen.value,
-      rationale,
-      engine: result,
-      supersedesId: supersedesId ?? null,
-    },
-    idempotencyKey ?? null,
-  );
+      err: String(err).slice(0, 300),
+    });
+    return fail(
+      'write_failed',
+      'The ruling could not be stored because the datastore rejected the write.',
+      503,
+    );
+  }
 
   const integrity = await replay(ruling.id);
   return withScope({ ruling, engine: result, integrity, idempotentReplay: replayed }, scopeId);

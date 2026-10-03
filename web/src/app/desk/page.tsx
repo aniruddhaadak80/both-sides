@@ -11,10 +11,13 @@ export const dynamic = 'force-dynamic';
 
 export default async function DeskPage() {
   const scopeId = await readScopeId();
-  const [corpus, rulings] = await Promise.all([loadCorpus(scopeId), listRulings(scopeId)]);
+  const corpus = await loadCorpus(scopeId);
+  const rulings = await listRulings(scopeId, { limit: 20 });
 
+  // Replaying every chain on each render is a query per ruling, so only the most
+  // recent few are verified here; /verify replays any ruling on demand.
   const withIntegrity = await Promise.all(
-    rulings.map(async (ruling) => ({ ruling, integrity: await replay(ruling.id) })),
+    rulings.slice(0, 8).map(async (ruling) => ({ ruling, integrity: await replay(ruling.id) })),
   );
 
   const disputes = corpus.entities.flatMap((e) =>
