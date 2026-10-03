@@ -4,6 +4,26 @@ export interface SqlAdapter {
   execute(sql: string, params?: unknown[]): Promise<void>;
 }
 
+/** A database round trip must never hang a request forever. */
+export const DB_TIMEOUT_MS = 20000;
+
+export class DbTimeoutError extends Error {
+  constructor(operation: string) {
+    super(`database ${operation} exceeded ${DB_TIMEOUT_MS}ms`);
+    this.name = 'DbTimeoutError';
+  }
+}
+
+export function withDbTimeout<T>(operation: string, work: Promise<T>, ms = DB_TIMEOUT_MS): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new DbTimeoutError(operation)), ms);
+  });
+  return Promise.race([work, timeout]).finally(() => {
+    if (timer) clearTimeout(timer);
+  });
+}
+
 interface Schema {
   rulings: {
     id: string;
@@ -126,11 +146,13 @@ async function neonAdapter(url: string): Promise<SqlAdapter> {
   return {
     kind: 'neon-postgres',
     async query<T>(text: string, params: unknown[] = []) {
-      const rows = await sql.query(text, params as never[]);
-      return rows as T[];
+      return withDbTimeout('query', (async () => {
+        const rows = await sql.query(text, params as never[]);
+        return rows as T[];
+      })());
     },
     async execute(text: string, params: unknown[] = []) {
-      await sql.query(text, params as never[]);
+      await withDbTimeout('execute', sql.query(text, params as never[]).then(() => {}));
     },
   };
 }
@@ -141,11 +163,13 @@ async function tcpAdapter(url: string): Promise<SqlAdapter> {
   return {
     kind: 'postgres-tcp',
     async query<T>(text: string, params: unknown[] = []) {
-      const res = await pool.query(text, params as never[]);
-      return res.rows as T[];
+      return withDbTimeout('query', (async () => {
+        const res = await pool.query(text, params as never[]);
+        return res.rows as T[];
+      })());
     },
     async execute(text: string, params: unknown[] = []) {
-      await pool.query(text, params as never[]);
+      await withDbTimeout('execute', pool.query(text, params as never[]).then(() => {}));
     },
   };
 }
@@ -158,8 +182,10 @@ async function pgliteAdapter(): Promise<SqlAdapter> {
   const dir = process.env.PGLITE_DIR?.trim();
   const db = dir ? await PGlite.create(`file://${dir}`) : await PGlite.create();
   const run = async <T>(text: string, params: unknown[]): Promise<T[]> => {
-    const res = await db.query<T>(text, params as unknown[]);
-    return res.rows as T[];
+    return withDbTimeout('query', (async () => {
+      const res = await db.query<T>(text, params as unknown[]);
+      return res.rows as T[];
+    })());
   };
   return {
     kind: 'pglite-embedded',
@@ -168,10 +194,13 @@ async function pgliteAdapter(): Promise<SqlAdapter> {
       // exec() cannot bind parameters, so anything parameterised must go
       // through query(). exec() stays for parameterless DDL.
       if (params.length > 0) {
-        await db.query(text, params as unknown[]);
+        await withDbTimeout(
+          'query',
+          db.query(text, params as unknown[]).then(() => {}),
+        );
         return;
       }
-      await db.exec(text);
+      await withDbTimeout('exec', db.exec(text).then(() => {}));
     },
   };
 }
