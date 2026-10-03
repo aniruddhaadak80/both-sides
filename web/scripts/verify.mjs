@@ -255,6 +255,33 @@ const run = async () => {
     replayed?.ruling?.id === agentId && replayed?.idempotentReplay === true,
   );
 
+  // Idempotency is scoped: the same key presented by a different session must
+  // create its own ruling rather than colliding or replaying someone else's.
+  const firstScopeCookie = cookie;
+  cookie = '';
+  await req('/api/session');
+  const crossScopeCreate = await req('/api/rulings', {
+    method: 'POST',
+    body: JSON.stringify({
+      entityId: entity.entityId,
+      propertyId: dispute.propertyId,
+      chosenClaimId: chosen,
+      rationale: 'Same key presented by a different session.',
+      idempotencyKey: idemKey,
+    }),
+  });
+  check(
+    'the same key in a new session creates a new ruling',
+    crossScopeCreate.status === 200 &&
+      !!crossScopeCreate.json?.ruling?.id &&
+      crossScopeCreate.json.ruling.id !== agentId &&
+      crossScopeCreate.json.idempotentReplay !== true,
+    `got ${crossScopeCreate.status} ${crossScopeCreate.text.slice(0, 140)}`,
+  );
+  const crossId = crossScopeCreate.json?.ruling?.id;
+  if (crossId) await req(`/api/rulings/${crossId}`, { method: 'DELETE' });
+  cookie = firstScopeCookie;
+
   const restReadBack = await req('/api/rulings');
   check(
     'agent-created ruling is visible through REST',

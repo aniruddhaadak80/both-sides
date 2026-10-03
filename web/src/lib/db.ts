@@ -69,8 +69,8 @@ interface Schema {
   };
 }
 
-const SCHEMA_SQL = `
-create table if not exists rulings (
+const SCHEMA_STATEMENTS: string[] = [
+  `create table if not exists rulings (
   id text primary key,
   scope_id text not null,
   entity_id text not null,
@@ -90,12 +90,12 @@ create table if not exists rulings (
   updated_at text not null,
   seal text not null,
   share_token text
-);
-create index if not exists rulings_scope_idx on rulings (scope_id, created_at desc);
-create index if not exists rulings_dispute_idx on rulings (entity_id, property_id);
-create unique index if not exists rulings_share_idx on rulings (share_token) where share_token is not null;
+)`,
+  'create index if not exists rulings_scope_idx on rulings (scope_id, created_at desc)',
+  'create index if not exists rulings_dispute_idx on rulings (entity_id, property_id)',
+  'create unique index if not exists rulings_share_idx on rulings (share_token) where share_token is not null',
 
-create table if not exists audit_events (
+  `create table if not exists audit_events (
   ruling_id text not null,
   seq integer not null,
   at text not null,
@@ -105,16 +105,16 @@ create table if not exists audit_events (
   prev_seal text not null,
   seal text not null,
   primary key (ruling_id, seq)
-);
+)`,
 
-create table if not exists idempotency (
-  key text primary key,
+  `create table if not exists idempotency (
+  key text not null,
   scope_id text not null,
   ruling_id text not null,
   created_at text not null
-);
+)`,
 
-create table if not exists imported_entities (
+  `create table if not exists imported_entities (
   entity_id text primary key,
   scope_id text not null,
   label text not null,
@@ -123,9 +123,26 @@ create table if not exists imported_entities (
   fetched_at text not null,
   source text not null,
   created_at text not null
-);
-create index if not exists imported_scope_idx on imported_entities (scope_id, created_at desc);
-`;
+)`,
+  'create index if not exists imported_scope_idx on imported_entities (scope_id, created_at desc)',
+
+  // Migration 001: idempotency keys are scoped. The original table keyed rows
+  // on `key` alone, so two anonymous sessions reusing the same key collided on
+  // insert. Rows are deduplicated first, keeping the newest write per key.
+  `delete from idempotency a using idempotency b
+   where a.key = b.key and a.scope_id <> b.scope_id
+     and (a.created_at < b.created_at
+       or (a.created_at = b.created_at and a.scope_id > b.scope_id))`,
+  `do $$
+  begin
+    if exists (select 1 from pg_constraint where conname = 'idempotency_pkey') then
+      alter table idempotency drop constraint idempotency_pkey;
+    end if;
+    if not exists (select 1 from pg_constraint where conname = 'idempotency_scope_pkey') then
+      alter table idempotency add constraint idempotency_scope_pkey primary key (key, scope_id);
+    end if;
+  end $$`,
+];
 
 // Route bundles get separate module registries, so the adapter and the schema
 // promise are pinned to the process. Without this each route would open its own
@@ -241,14 +258,13 @@ export async function db(): Promise<SqlAdapter> {
   const a = await resolveAdapter();
   if (!cache.schemaReady) {
     cache.schemaReady = (async () => {
-      // Neon's extended protocol rejects multi-statement strings, so DDL is applied
-      // one statement at a time. Every statement is idempotent. A cold start can
-      // race another invocation on the same statements, so one retry is allowed.
+      // Statements arrive whole, never split: the migration block contains
+      // semicolons of its own. Every statement is idempotent, and a cold start
+      // can race another invocation, so one retry is allowed.
       for (let attempt = 1; attempt <= 2; attempt += 1) {
         try {
-          for (const raw of SCHEMA_SQL.split(';')) {
-            const stmt = raw.trim();
-            if (stmt) await a.execute(stmt);
+          for (const stmt of SCHEMA_STATEMENTS) {
+            await a.execute(stmt);
           }
           return;
         } catch (err) {
