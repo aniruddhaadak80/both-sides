@@ -10,7 +10,7 @@ export const site = {
   tagline: 'An adjudication desk for data that disagrees with itself.',
   description:
     'Both Sides loads a real entity, puts its conflicting structured claims side by side with their sources, and rules on which one governs with an explainable precedence engine. Every ruling is hash-chained and exportable.',
-  liveUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://both-sides.vercel.app',
+  liveUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://both-sides-eta.vercel.app',
   repoUrl: 'https://github.com/aniruddhaadak80/both-sides',
   repoSlug: 'aniruddhaadak80/both-sides',
   issuesUrl: 'https://github.com/aniruddhaadak80/both-sides/issues',

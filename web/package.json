@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test \"src/lib/__tests__/*.test.ts\"",
     "corpus": "node scripts/capture-corpus.mjs",
-    "verify:live": "node scripts/verify-live.mjs"
+    "verify:live": "node scripts/verify.mjs",
+    "smoke": "node scripts/smoke-local.mjs",
+    "configure:vercel": "node scripts/configure-project.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.8",
