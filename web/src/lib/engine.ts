@@ -174,8 +174,22 @@ function scoreCorroboration(claim: Claim, corroboratingText: string): Factor {
       'Second source quotes no figure for this property.',
     );
   }
-  const tolerance = Math.max(1, Math.abs(claimed) * 0.005);
-  const hit = tokens.find((t) => Math.abs(t - claimed) <= tolerance);
+  // Only figures of a comparable magnitude can corroborate. Without this a
+  // stray "8" or "64" anywhere in the prose counts as a competing figure and
+  // corroboration collapses to zero for every large value.
+  const claimedAbs = Math.abs(claimed);
+  const floor = Math.max(10, claimedAbs * 0.01);
+  const relevant = tokens.filter((t) => Math.abs(t) >= floor);
+  if (relevant.length === 0) {
+    return factor(
+      'corroboration',
+      'Corroboration',
+      0.5,
+      `Second source quotes no figure of a comparable size to ${claimed.toLocaleString('en-US')}.`,
+    );
+  }
+  const tolerance = Math.max(1, claimedAbs * 0.005);
+  const hit = relevant.find((t) => Math.abs(t - claimed) <= tolerance);
   if (hit !== undefined) {
     return factor(
       'corroboration',
@@ -188,7 +202,7 @@ function scoreCorroboration(claim: Claim, corroboratingText: string): Factor {
     'corroboration',
     'Corroboration',
     0,
-    `Second source quotes ${tokens
+    `Second source quotes ${relevant
       .slice(0, 3)
       .map((t) => t.toLocaleString('en-US'))
       .join(', ')}, none matching this claim.`,

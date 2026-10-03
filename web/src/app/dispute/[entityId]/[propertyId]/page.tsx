@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { RulingForm } from '@/components/RulingForm';
 import { ClaimRow, FactorBar, VerdictBadge } from '@/components/VerdictPanel';
 import { findEntity, loadCorpus } from '@/lib/corpus';
+import { formatClaimValue } from '@/lib/format';
 import { adjudicate } from '@/lib/engine';
 import { listRulings } from '@/lib/repository';
 import { readScopeId } from '@/lib/session';
@@ -198,7 +199,7 @@ export default async function DisputePage({
             {mine.map((ruling) => (
               <li key={ruling.id} className="rounded border border-rule bg-paper px-3 py-2">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <span className="font-medium">{ruling.chosenValue}</span>
+                  <span className="font-medium">{formatClaimValue(ruling.chosenValue)}</span>
                   <span className="text-xs text-ink-60">
                     {ruling.status} · {ruling.createdAt.slice(0, 10)}
                   </span>

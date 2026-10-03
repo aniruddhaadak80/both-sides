@@ -1,4 +1,5 @@
 import type { EngineResult, Factor } from '@/lib/types';
+import { formatClaimValue } from '@/lib/format';
 
 const VERDICT_STYLE: Record<string, { label: string; className: string }> = {
   settled: { label: 'Settled', className: 'bg-felt text-paper' },
@@ -52,7 +53,7 @@ export function ClaimRow({
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <span className="font-medium">
-          {claim.value}
+          {formatClaimValue(claim.value)}
           {leader ? (
             <span className="ml-2 rounded bg-felt px-1.5 py-0.5 text-[10px] font-semibold text-paper">
               LEADS

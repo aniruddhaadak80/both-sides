@@ -35,6 +35,38 @@ SHA-384 hash chain so anyone can replay it and prove nothing was edited.
 
 ---
 
+## Screens
+
+**The landing page shows a real contradiction, not a mock.** Reykjavík's population
+carries 45 published claims; the engine ranks them and shows the sentence behind
+every factor.
+
+![Landing page with a live contradiction and itemised factors](docs/screenshots/01-landing-desktop.png)
+
+**The adjudication desk.** Both sides are permanently on screen with the winning
+claim marked, and every claim's upstream rank and reference count.
+
+![The two-podium adjudication desk showing both sides](docs/screenshots/03-dispute-desktop.png)
+
+**Recording a ruling** through the visible control, with the seal reported back.
+
+![A ruling recorded through the form](docs/screenshots/04-ruling-recorded.png)
+
+**The agent console** issues real JSON-RPC calls and shows the request and the
+response side by side.
+
+![The MCP agent console with a tools/list response](docs/screenshots/05-agent-console.png)
+
+**The corpus**, every entity and disputed property with its claims.
+
+![The corpus of disputed properties](docs/screenshots/06-corpus-desktop.png)
+
+**Mobile**, including the navigation drawer with the repository link.
+
+![The landing page on a 390px viewport](docs/screenshots/10-landing-mobile.png)
+
+---
+
 ## Contents
 
 - [✨ Features](#-features)
@@ -50,7 +82,6 @@ SHA-384 hash chain so anyone can replay it and prove nothing was edited.
 - [🚢 Deployment](#-deployment)
 - [🗺 Roadmap](#-roadmap)
 - [🤝 Contributing](#-contributing)
-
 ---
 
 ## ✨ Features

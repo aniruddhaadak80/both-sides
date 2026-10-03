@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { getRulingByShareToken, replay } from '@/lib/repository';
 import { VerdictBadge } from '@/components/VerdictPanel';
+import { formatClaimValue } from '@/lib/format';
 import { site } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
@@ -54,7 +55,7 @@ export default async function SharedRulingPage({
       <dl className="mt-6 divide-y divide-rule rounded border border-rule bg-paper">
         <div className="px-4 py-3">
           <dt className="text-xs uppercase tracking-wide text-ink-60">Ruled value</dt>
-          <dd className="mt-1 font-display text-2xl">{ruling.chosenValue}</dd>
+          <dd className="mt-1 font-display text-2xl">{formatClaimValue(ruling.chosenValue)}</dd>
         </div>
         <div className="px-4 py-3">
           <dt className="text-xs uppercase tracking-wide text-ink-60">Rationale</dt>

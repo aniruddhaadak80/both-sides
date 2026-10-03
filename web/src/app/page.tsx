@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { GitHubMark } from '@/components/GitHubMark';
 import { ClaimRow, FactorBar, VerdictBadge } from '@/components/VerdictPanel';
+import { AGENT_TOOL_COUNT } from '@/lib/agent-tools';
 import { loadCorpus } from '@/lib/corpus';
 import { adjudicate } from '@/lib/engine';
 import { readScopeId } from '@/lib/session';
@@ -91,7 +92,7 @@ export default async function Home() {
           </div>
           <div>
             <dt className="text-xs uppercase tracking-wide text-ink-60">Agent tools</dt>
-            <dd className="mt-1 font-mono text-lg tabular-nums">10</dd>
+            <dd className="mt-1 font-mono text-lg tabular-nums">{AGENT_TOOL_COUNT}</dd>
           </div>
         </dl>
       </section>

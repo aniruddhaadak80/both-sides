@@ -1,21 +1,10 @@
 import { AgentConsole } from '@/components/AgentConsole';
+import { AGENT_TOOLS } from '@/lib/agent-tools';
 import { loadCorpus } from '@/lib/corpus';
 import { readScopeId } from '@/lib/session';
 
 export const metadata = { title: 'Agent' };
 export const dynamic = 'force-dynamic';
-
-const TOOLS = [
-  { name: 'list_disputes', kind: 'read', description: 'Every entity with a contradicting property.' },
-  { name: 'get_dispute', kind: 'read', description: 'One property dispute in full, with references.' },
-  { name: 'list_rulings', kind: 'read', description: 'Rulings recorded in this session.' },
-  { name: 'adjudicate', kind: 'analysis', description: 'Run the precedence engine over a dispute.' },
-  { name: 'engine_reference', kind: 'read', description: 'Published weights and verdict bands.' },
-  { name: 'get_audit_trail', kind: 'read', description: 'Hash-chained events for one ruling.' },
-  { name: 'record_ruling', kind: 'write', description: 'Persist a ruling. Idempotent on idempotencyKey.' },
-  { name: 'revise_ruling', kind: 'write', description: 'Amend a rationale, appending a sealed event.' },
-  { name: 'retire_ruling', kind: 'write', description: 'Soft-delete, retaining the chain.' },
-];
 
 export default async function AgentPage() {
   const corpus = await loadCorpus(await readScopeId());
@@ -44,7 +33,7 @@ export default async function AgentPage() {
               </tr>
             </thead>
             <tbody>
-              {TOOLS.map((t) => (
+              {AGENT_TOOLS.map((t) => (
                 <tr key={t.name} className="border-b border-rule/60">
                   <th scope="row" className="py-2 pr-3 text-left font-mono text-xs">{t.name}</th>
                   <td className="py-2 pr-3">
