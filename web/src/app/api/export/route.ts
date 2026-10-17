@@ -2,7 +2,7 @@ import { fail } from '@/lib/api';
 import { ENGINE_VERSION, VERDICT_BANDS } from '@/lib/engine';
 import { corroborationText, fetchUpstreamEntity } from '@/lib/upstream';
 import { findEntity, loadCorpus } from '@/lib/corpus';
-import { getAudit, getRuling, replay } from '@/lib/repository';
+import { getAudit, getRuling, getRulingByShareToken, replay } from '@/lib/repository';
 import { readScopeId } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
@@ -11,14 +11,22 @@ export async function GET(request: Request) {
   const scopeId = await readScopeId();
   const url = new URL(request.url);
   const id = url.searchParams.get('id');
+  const token = url.searchParams.get('token');
   const format = url.searchParams.get('format') === 'json' ? 'json' : 'markdown';
 
-  if (!id) return fail('invalid_request', 'An ?id= rulingId is required.', 400);
+  // A share token and a session scope are two ways of naming the same authorisation. The
+  // shared page already treats a valid token as sufficient to read the ruling, so the
+  // download it offers has to work for exactly that audience -- otherwise the page
+  // advertises an export the only person it is addressed to cannot use. A token grants
+  // nothing extra: it resolves to the same ruling the page has already rendered.
+  const ruling = token ? await getRulingByShareToken(token) : id ? await getRuling(id, scopeId) : undefined;
 
-  const ruling = await getRuling(id, scopeId);
-  if (!ruling) return fail('not_found', `No ruling ${id} belongs to this session.`, 404);
+  if (!token && !id) return fail('invalid_request', 'An ?id= or ?token= is required.', 400);
+  if (!ruling) {
+    return fail('not_found', `No ruling ${id ?? token} belongs to this session.`, 404);
+  }
 
-  const [report, events] = await Promise.all([replay(id), getAudit(id)]);
+  const [report, events] = await Promise.all([replay(ruling.id), getAudit(ruling.id)]);
 
   let entity = findEntity(await loadCorpus(scopeId), ruling.entityId);
   if (!entity) {
