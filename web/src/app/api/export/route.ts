@@ -65,11 +65,16 @@ export async function GET(request: Request) {
       'Both Sides ranks competing claims and records a human ruling. It does not certify that the chosen value is correct, and it is not a substitute for consulting the primary sources.',
   };
 
+  // The ruling can be named by ?id= or resolved from a ?token=. The filename
+  // follows the ruling, never the token: a token is the capability that grants
+  // the read, and a filename ends up in download folders and shell history.
+  const slug = ruling.id;
+
   if (format === 'json') {
     return new Response(JSON.stringify(payload, null, 2), {
       headers: {
         'content-type': 'application/json; charset=utf-8',
-        'content-disposition': `attachment; filename="both-sides-${id}.json"`,
+        'content-disposition': `attachment; filename="both-sides-${slug}.json"`,
       },
     });
   }
@@ -148,7 +153,7 @@ export async function GET(request: Request) {
   return new Response(lines.join('\n'), {
     headers: {
       'content-type': 'text/markdown; charset=utf-8',
-      'content-disposition': `attachment; filename="both-sides-${id}.md"`,
+      'content-disposition': `attachment; filename="both-sides-${slug}.md"`,
     },
   });
 }
