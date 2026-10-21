@@ -114,17 +114,35 @@ const SCHEMA_STATEMENTS: string[] = [
   created_at text not null
 )`,
 
+  // Imports are per session, so the key is (entity_id, scope_id). A single
+  // column key on entity_id would let one anonymous session overwrite another
+  // session's import, because the upsert never rewrites scope_id.
   `create table if not exists imported_entities (
-  entity_id text primary key,
+  entity_id text not null,
   scope_id text not null,
   label text not null,
   description text,
   payload text not null,
   fetched_at text not null,
   source text not null,
-  created_at text not null
+  created_at text not null,
+  primary key (entity_id, scope_id)
 )`,
   'create index if not exists imported_scope_idx on imported_entities (scope_id, created_at desc)',
+
+  // Migration 002: scope the imported-entity key. The original table keyed rows
+  // on entity_id alone, so a second session importing the same entity collided
+  // with the first and its import was silently dropped. entity_id is unique
+  // across the existing rows, so the composite key cannot collide with them.
+  `do $$
+  begin
+    if exists (select 1 from pg_constraint where conname = 'imported_entities_pkey') then
+      alter table imported_entities drop constraint imported_entities_pkey;
+    end if;
+    if not exists (select 1 from pg_constraint where conname = 'imported_entities_scope_pkey') then
+      alter table imported_entities add constraint imported_entities_scope_pkey primary key (entity_id, scope_id);
+    end if;
+  end $$`,
 
   // Migration 001: idempotency keys are scoped. The original table keyed rows
   // on `key` alone, so two anonymous sessions reusing the same key collided on
