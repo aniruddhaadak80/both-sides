@@ -328,6 +328,11 @@ const run = async () => {
     `got ${recipientExport.status} ${recipientExport.text.slice(0, 120)}`,
   );
   check('recipient export is the shared ruling', recipientExport.text.includes(rulingId));
+  check(
+    'recipient export is named after the ruling, not after a null id',
+    !/filename="both-sides-null\./.test(recipientExport.headers.get('content-disposition') ?? ''),
+    recipientExport.headers.get('content-disposition') ?? 'no content-disposition header',
+  );
   cookie = recordingCookie;
 
   section('11. Routes and repository chrome');
