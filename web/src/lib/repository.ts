@@ -1,10 +1,10 @@
 import { randomBytes } from 'node:crypto';
 
-import { adjudicate } from './engine';
-import { ENGINE_VERSION } from './engine';
-import { chainSeal, genesisSeal } from './canonical';
-import { db, type Db } from './db';
-import { corroborationText } from './upstream';
+import { adjudicate } from './engine.ts';
+import { ENGINE_VERSION } from './engine.ts';
+import { chainSeal, genesisSeal } from './canonical.ts';
+import { db, type Db } from './db.ts';
+import { corroborationText } from './upstream.ts';
 import type {
   AuditEvent,
   EngineResult,
@@ -13,7 +13,7 @@ import type {
   Ruling,
   RulingStatus,
 } from './types';
-import type { UpstreamEntity } from './upstream';
+import type { UpstreamEntity } from './upstream.ts';
 
 export function newId(): string {
   return `rul_${randomBytes(8).toString('hex')}`;
@@ -332,7 +332,7 @@ export async function saveImportedEntity(scopeId: string, entity: UpstreamEntity
   await sql.execute(
     `insert into imported_entities (entity_id, scope_id, label, description, payload, fetched_at, source, created_at)
      values ($1,$2,$3,$4,$5,$6,$7,$8)
-     on conflict (entity_id) do update set payload = excluded.payload, fetched_at = excluded.fetched_at`,
+     on conflict (entity_id, scope_id) do update set payload = excluded.payload, fetched_at = excluded.fetched_at`,
     [
       entity.entityId,
       scopeId,
