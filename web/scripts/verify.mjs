@@ -314,6 +314,22 @@ const run = async () => {
   check('shared ruling renders', shared.status === 200, `got ${shared.status}`);
   check('shared ruling shows the decision', shared.text.includes('Rationale'));
 
+  // The only audience of a share link is a session that did not record the
+  // ruling, so the download the shared page offers has to work for them too.
+  const downloadHref = /href="(\/api\/export\?[^"]+)"/.exec(shared.text)?.[1] ?? '';
+  check('shared page offers an export download', !!downloadHref);
+  const recordingCookie = cookie;
+  cookie = '';
+  await req('/api/session');
+  const recipientExport = await req(downloadHref);
+  check(
+    'a share recipient can download the export the shared page offers',
+    recipientExport.status === 200,
+    `got ${recipientExport.status} ${recipientExport.text.slice(0, 120)}`,
+  );
+  check('recipient export is the shared ruling', recipientExport.text.includes(rulingId));
+  cookie = recordingCookie;
+
   section('11. Routes and repository chrome');
   for (const path of ['/desk', '/corpus', '/agent', '/export', '/method', '/settings', '/verify', '/share']) {
     const page = await req(path);

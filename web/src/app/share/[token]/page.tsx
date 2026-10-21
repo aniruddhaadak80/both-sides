@@ -83,7 +83,7 @@ export default async function SharedRulingPage({
 
       <div className="mt-6 flex flex-wrap gap-2">
         <a
-          href={`/api/export?id=${ruling.id}&format=markdown`}
+          href={`/api/export?token=${token}&format=markdown`}
           className="rounded border border-rule px-3 py-1.5 text-sm"
         >
           Download Markdown
