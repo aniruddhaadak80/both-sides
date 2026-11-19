@@ -15,16 +15,16 @@
     "configure:vercel": "node scripts/configure-project.mjs"
   },
   "dependencies": {
-    "@electric-sql/pglite": "^0.5.8",
-    "@neondatabase/serverless": "^1.2.0",
-    "@sanity/image-url": "^2.1.1",
-    "framer-motion": "^14.0.0",
-    "lucide-react": "^1.51.0",
-    "next": "16.4.5",
-    "next-sanity": "^13.3.4",
+    "@electric-sql/pglite": "^0.5.16",
+    "@neondatabase/serverless": "^1.2.1",
+    "@sanity/image-url": "^2.2.0",
+    "framer-motion": "^14.14.0",
+    "lucide-react": "^1.73.0",
+    "next": "16.4.6",
+    "next-sanity": "^13.4.0",
     "pg": "^8.23.1",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -33,7 +33,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.8",
+    "eslint-config-next": "16.4.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
