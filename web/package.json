@@ -15,11 +15,11 @@
     "configure:vercel": "node scripts/configure-project.mjs"
   },
   "dependencies": {
-    "@electric-sql/pglite": "^0.5.16",
+    "@electric-sql/pglite": "^0.5.17",
     "@neondatabase/serverless": "^1.2.1",
     "@sanity/image-url": "^2.2.0",
     "framer-motion": "^14.14.0",
-    "lucide-react": "^1.75.0",
+    "lucide-react": "^1.77.0",
     "next": "16.4.6",
     "next-sanity": "^13.5.1",
     "pg": "^8.23.1",
